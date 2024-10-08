@@ -1,0 +1,13 @@
+$TTL 3600 ; デフォルトTTL（秒単位）
+
+@       IN      SOA     localhost. root.localhost. (
+    2023100701 ; Serial
+    7200       ; Refresh
+    3600       ; Retry
+    1209600    ; Expire
+    86400      ; Minimum
+)
+
+@       IN      NS      dns.test.
+
+dns.test.       IN      A       10.192.168.3
