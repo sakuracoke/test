@@ -1,0 +1,11 @@
+---
+- name: validate /etc/named.conf
+  shell: named-checkconf /etc/named.conf
+
+- name: validate /var/named/test.zone
+  shell: named-checkzone test /var/named/chroot/var/named/test.zone
+
+- name: restart named-chroot
+  service:
+    name: named-chroot
+    state: restarted

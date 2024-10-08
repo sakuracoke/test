@@ -1,0 +1,39 @@
+---
+- name: stop & diable service bind(named)
+  service:
+    name: named
+    state: stopped
+    enabled: no
+
+- name: start & enalbe service bind-chroot(named-chroot)
+  service:
+    name: named-chroot
+    state: started
+    enabled: yes
+
+- name: copy /etc/named.conf
+  get_url:
+    url: https://github.com/sakuracoke/test/blob/main/master_file/etc/named.conf
+    dest: /etc/named.conf
+    owner: root
+    group: root
+    mode: 0755
+    force: yes
+  notify: validate conf and restart named-chroot
+
+- name: copy /var/named/test.zone
+  get_url:
+    url: https://github.com/sakuracoke/test/blob/main/master_file/var/named/test.zone
+    dest: /var/named/test.zone
+    owner: root
+    group: root
+    mode: 0755
+    force: yes
+  notify: validate conf and restart named-chroot
+
+- name: open firewall dns
+  firewalld:
+    service: dns
+    state: enabled
+    permanent: yes
+    immediate: true

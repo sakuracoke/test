@@ -1,0 +1,3 @@
+---
+- name: validate conf and restart named-chroot
+  import_tasks: validate_and_restart_named-chroot.yml

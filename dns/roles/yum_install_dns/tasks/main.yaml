@@ -1,0 +1,9 @@
+---
+- name: install bind, bind-chroot
+  yum:
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - bind
+      - bind-chroot
+    state: latest
