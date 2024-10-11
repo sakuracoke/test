@@ -13,7 +13,7 @@
 
 - name: copy /etc/named.conf
   get_url:
-    url: https://github.com/sakuracoke/test/blob/main/master_file/etc/named.conf
+    url: https://raw.githubusercontent.com/sakuracoke/test/refs/heads/main/master_file/etc/named.conf
     dest: /etc/named.conf
     owner: root
     group: root
@@ -23,7 +23,7 @@
 
 - name: copy /var/named/test.zone
   get_url:
-    url: https://github.com/sakuracoke/test/blob/main/master_file/var/named/test.zone
+    url: https://raw.githubusercontent.com/sakuracoke/test/refs/heads/main/master_file/var/named/test.zone
     dest: /var/named/test.zone
     owner: root
     group: root
